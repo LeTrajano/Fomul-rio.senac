@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulário</title>
+	<meta charset="UTF-8">
+	<style>
+	body {
+		background-color: #643414;
+	}
+	.formulario-rosa {
+		background-color: rgb(145, 100, 49);
+	  }</style>	  
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#telefone").mask("(00) 0000-00009");
+			$("#email").mask("A", {
+				translation: {
+					"A": {pattern: /[\w@\-.+]/, recursive: true}
+				}
+			});
+		});
+
+        /Coletar os valores dos campos de entrada e armazenar/
+		function validateForm() {
+			var nome = document.forms["myForm"]["nome"].value;
+			var sobrenome = document.forms["myForm"]["sobrenome"].value;
+			var telefone = document.forms["myForm"]["telefone"].value;
+			var email = document.forms["myForm"]["email"].value;
+			var mensagem = document.forms["myForm"]["mensagem"].value;
+			var linguas_aplicadas = document.forms["myForm"]["linguas_aplicadas"].value;
+			var prototipo = document.forms["myForm"]["prototipo"].value;
+			var linguas_preferidas = document.forms["myForm"]["linguas_preferidas"].value;
+			var banco_dados = document.forms["myForm"]["banco_dados"].value;
+			var turno_preferencia = document.forms["myForm"]["turno_preferencia"].value;
+			var horario_sugerido = document.forms["myForm"]["horario_sugerido"].value;
+			var previsao_entrega = document.forms["myForm"]["previsao_entrega"].value;
+
+			if (nome == "" || sobrenome == "" || telefone == "" || email == "" || mensagem == "" || linguas_aplicadas == "" || prototipo == "" || linguas_preferidas == "" || banco_dados == "" || turno_preferencia == "" || horario_sugerido == "" || previsao_entrega == "") {
+				alert("Por favor, preencha todos os campos obrigatórios.");
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form name="myForm" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
+		<fieldset class="formulario-rosa">
+			<legend><h2>Formulário</h2></legend>
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="nome" required>
+
+			<label for="sobrenome">Sobrenome:</label>
+			<input type="text" id="sobrenome" name="sobrenome" required>
+
+			<p><label for="telefone">Telefone:</label>
+			<input type="tel" id="telefone" name="telefone" required></p>
+
+			<p><label for="email">E-mail:</label>
+			<input type="email" id="email" name="email" required></p>
+
+			<label for="mensagem">Mensagem:</label>
+			<textarea id="mensagem" name="mensagem" required></textarea>
+
+			<p><label for="linguas_aplicadas">Língua aplicada no serviço:</label>
+			<select id="linguas_aplicadas" name="linguas_aplicadas" required>
+				<option value="">Selecione uma</option>
+					<option value="ingles">Inglês</option>
+					<option value="espanhol">Espanhol</option>
+					<option value="frances">Francês</option>
+					<option value="portugues-br">Português (pt-br)</option>
+				</select></p>
+	
+			<p>	<label for="prototipo">Protótipo:</label>
+				<input type="file" id="prototipo" name="prototipo" accept=".pdf,.doc,.docx,.jpg,.png" required></p>
+	
+				<p><label for="linguas_preferidas">Linguagens preferidas:</label>
+				<select id="linguas_preferidas" name="linguas_preferidas[]" multiple required>
+					<option value="java">Java</option>
+					<option value="python">Python</option>
+					<option value="csharp">C#</option>
+					<option value="php">PHP</option>
+					<option value="javascript">JavaScript</option>
+				</select> </p>
+	
+				<p><label for="banco_dados">Tipo de banco de dados recomendado:</label>
+				<br>
+				<label><input type="radio" name="banco_dados" value="mysql" required>MySQL</label>
+				<br>
+				<label><input type="radio" name="banco_dados" value="postgresql">PostgreSQL</label></p>
+	
+				<p><label for="turno_preferencia">Turno de preferência para reuniões:</label>
+				<select id="turno_preferencia" name="turno_preferencia" required>
+					<option value="manha">Manhã</option>
+					<option value="tarde">Tarde</option>
+					<option value="noite">Noite</option>
+				</select></p>
+	
+				<p><label for="horario_sugerido">Melhor horário sugerido para reuniões:</label>
+				<input type="time" id="horario_sugerido" name="horario_sugerido" required></p>
+	
+				<label for="previsao_entrega">Previsão de entrega desejada:</label>
+				<input type="date" id="previsao_entrega" name="previsao_entrega" required>
+	
+				<br><br>
