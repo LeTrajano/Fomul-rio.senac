@@ -7,8 +7,8 @@
 	body {
 		background-color: #643414;
 	}
-	.formulario-rosa {
-		background-color: rgb(145, 100, 49);
+	.formulario-cor {
+		background-color: rgb(172, 125, 71);
 	  }</style>	  
 
 
@@ -24,7 +24,7 @@
 			});
 		});
 
-        /Coletar os valores dos campos de entrada e armazenar/
+      
 		function validateForm() {
 			var nome = document.forms["myForm"]["nome"].value;
 			var sobrenome = document.forms["myForm"]["sobrenome"].value;
@@ -48,7 +48,7 @@
 </head>
 <body>
 	<form name="myForm" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
-		<fieldset class="formulario-rosa">
+		<fieldset class="formulario-cor">
 			<legend><h2>Formulário</h2></legend>
 			<label for="nome">Nome:</label>
 			<input type="text" id="nome" name="nome" required>
